@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>qishi</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <filter>
+      <filter-name>Login</filter-name>
+      <filter-class>com.haojieli.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+      <filter-name>Login</filter-name>
+      <url-pattern>/action/*</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+        <!-- 设置servlet的名字 -->
+        <servlet-name>httpServlet</servlet-name>
+        <!-- 具体的servlet的类，要填上包的全路径 -->
+        <servlet-class>control.MainControl</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <!-- 第二步：配置servlet映射信息 -->
+    <servlet-mapping>
+        <!-- 指定要映射的servlet的名字 -->
+        <servlet-name>httpServlet</servlet-name>
+        <!-- servlet的具体映射路径 -->
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
+</web-app>
